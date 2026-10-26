@@ -9,6 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 [hidden]{display:none!important}
+details.real>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px}
+details.real>summary::-webkit-details-marker{display:none}
+details.real>summary h3{margin:0}
+details.real>summary span::after{content:" ▾"}
+details.real[open]>summary span::after{content:" ▴"}
+details.real>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
 /* Layout: informe por pestañas; cada pestaña abre con su conclusión en una frase y luego el detalle visual */
 :root{
   --bg:#f3f5fa; --surface:#ffffff; --ink:#121a33; --muted:#5b6485; --line:#e2e6f0;
@@ -324,13 +330,12 @@ footer .wrap{padding-block:8px 40px}
 <!-- PAUTA -->
 <section class="tab" id="pauta" role="tabpanel" aria-labelledby="t-pauta" hidden>
   <p class="thesis">Las plataformas reportan un ROAS de 6,8 con $3,6 M invertidos, cerca de la meta de 7.</p>
-  <p>El ROAS principal es el que reporta cada plataforma. Debajo, como dato secundario, va el ROAS real: la venta que Shopify registra como llegada directamente por un anuncio.</p>
 
   <div class="kpis">
     <div class="kpi"><small>Inversión total</small><div class="v num">$3,6 M</div><div class="d dn">43 % sobre la referencia de $2,5 M</div></div>
-    <div class="kpi"><small>ROAS de las plataformas</small><div class="v num">6,8×</div><div class="d"><span class="dn">Meta: 7×</span> <span class="mut">· ROAS real 3,0×</span></div></div>
-    <div class="kpi"><small>ROAS Meta</small><div class="v num up">6,8×</div><div class="d mut">70 compras · ROAS real 3,2×</div></div>
-    <div class="kpi"><small>ROAS Google Ads</small><div class="v num up">6,9×</div><div class="d mut">17 conversiones · ROAS real 2,1×</div></div>
+    <div class="kpi"><small>ROAS de las plataformas</small><div class="v num">6,8×</div><div class="d dn">Meta: 7×</div></div>
+    <div class="kpi"><small>ROAS Meta</small><div class="v num up">6,8×</div><div class="d mut">70 compras · $19,3 M</div></div>
+    <div class="kpi"><small>ROAS Google Ads</small><div class="v num up">6,9×</div><div class="d mut">17 conversiones · $5,0 M</div></div>
   </div>
 
   <div class="panel tscroll">
@@ -340,67 +345,86 @@ footer .wrap{padding-block:8px 40px}
       <tbody>
         <tr><td>Inversión</td><td>$2.844.136</td><td>$724.018</td><td>$3.568.154</td></tr>
         <tr><td>Participación de la inversión</td><td>80 %</td><td>20 %</td><td>100 %</td></tr>
-        <tr><td><b>Compras que reporta la plataforma</b></td><td><b>70</b></td><td><b>17</b></td><td><b>87</b></td></tr>
-        <tr><td><b>Venta que reporta la plataforma</b></td><td><b>$19.287.820</b></td><td><b>$5.021.555</b></td><td><b>$24.309.375</b></td></tr>
-        <tr><td><b>ROAS de la plataforma</b></td><td class="up"><b>6,8×</b></td><td class="up"><b>6,9×</b></td><td class="up"><b>6,8×</b></td></tr>
-        <tr><td class="mut">Pedidos reales (Shopify)</td><td class="mut">39</td><td class="mut">4</td><td class="mut">43</td></tr>
-        <tr><td class="mut">Venta real (Shopify)</td><td class="mut">$9.191.930</td><td class="mut">$1.527.470</td><td class="mut">$10.719.400</td></tr>
-        <tr><td class="mut">ROAS real</td><td class="mut">3,2×</td><td class="mut">2,1×</td><td class="mut">3,0×</td></tr>
-        <tr><td class="mut">Costo por pedido real</td><td class="mut">$72.927</td><td class="mut">$181.005</td><td class="mut">$82.980</td></tr>
+        <tr><td>Compras que reporta la plataforma</td><td>70</td><td>17</td><td>87</td></tr>
+        <tr><td>Venta que reporta la plataforma</td><td>$19.287.820</td><td>$5.021.555</td><td>$24.309.375</td></tr>
+        <tr><td><b>ROAS de la plataforma</b></td><td class="up"><b>6,8×</b></td><td class="up"><b>6,9×</b></td><td><b>6,8×</b></td></tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="callout info">
-    <b>¿Por qué el ROAS de las plataformas es más alto que el real?</b>
-    <ul style="margin:8px 0 0;padding-left:18px;display:grid;gap:6px">
-      <li><b>Cuentan compras que llegaron por otro camino.</b> Meta se atribuye una compra si la persona le dio clic a un anuncio en los 7 días anteriores, aunque al final entrara por Google, directo o WhatsApp. Shopify se la asigna al último clic.</li>
-      <li><b>Cuentan compras sin clic.</b> Meta también suma a quien solo vio el anuncio el día anterior a comprar, aunque nunca le diera clic.</li>
-      <li><b>Las dos se atribuyen la misma compra.</b> Meta reporta 70 compras y Google 17: suman 87, cuando la tienda tuvo 85 pedidos en total y 43 llegaron directamente por un anuncio.</li>
-    </ul>
-    <p style="margin:10px 0 0">El ROAS de la plataforma muestra cuánto influyeron los anuncios en la compra. El ROAS real muestra cuánta venta llegó directamente por un anuncio. Los dos son válidos; lo importante es comparar siempre semanas con el mismo indicador.</p>
   </div>
 
   <div class="grid2">
     <div class="panel" style="border-top:4px solid var(--accent)">
       <h3>Meta · Facebook e Instagram</h3>
       <div class="vs">
-        <div><small>ROAS que reporta Meta</small><b class="num up">6,8×</b><span>5,4× en la 10.3 · ROAS real 3,2×</span></div>
-        <div><small>Compras que reporta Meta</small><b class="num">70</b><span>$19,3 M · 39 pedidos reales ($9,2 M)</span></div>
+        <div><small>ROAS que reporta Meta</small><b class="num up">6,8×</b><span>5,4× en la 10.3</span></div>
+        <div><small>Compras que reporta Meta</small><b class="num">70</b><span>$19,3 M · 45 en la 10.3</span></div>
         <div><small>Inversión</small><b class="num">$2,84 M</b><span>▲ 21,5 % frente a la 10.3 ($2,34 M)</span></div>
         <div><small>Impresiones</small><b class="num">336.754</b><span>307.171 en la 10.3</span></div>
       </div>
       <h3 style="margin-top:18px">Por campaña</h3>
       <div class="tscroll"><table>
-        <thead><tr><th>Campaña</th><th>Inversión</th><th>ROAS Meta</th><th>Compras Meta</th><th class="mut">Venta real</th></tr></thead>
+        <thead><tr><th>Campaña</th><th>Inversión</th><th>ROAS Meta</th><th>Resultado</th></tr></thead>
         <tbody>
-          <tr><td>AON 4 · ventas (nueva, 19 oct)</td><td>$499.417</td><td class="up"><b>8,8×</b></td><td>13</td><td class="mut">$747.770 · 2 ped.</td></tr>
-          <tr><td>AON 3 · ventas</td><td>$1.354.883</td><td class="up"><b>8,2×</b></td><td>40</td><td class="mut">$2.071.380 · 10 ped.</td></tr>
-          <tr><td>AON 2 · ventas</td><td>$841.128</td><td class="dn"><b>4,5×</b></td><td>17</td><td class="mut">$421.780 · 3 ped.</td></tr>
-          <tr><td>Consideración</td><td>$75.337</td><td>—</td><td>2.450 visitas</td><td class="mut">—</td></tr>
-          <tr><td>Reconocimiento</td><td>$73.371</td><td>—</td><td>15.899 videos vistos</td><td class="mut">—</td></tr>
+          <tr><td>AON 4 · ventas (nueva, 19 oct)</td><td>$499.417</td><td class="up"><b>8,8×</b></td><td>13 compras</td></tr>
+          <tr><td>AON 3 · ventas</td><td>$1.354.883</td><td class="up"><b>8,2×</b></td><td>40 compras</td></tr>
+          <tr><td>AON 2 · ventas</td><td>$841.128</td><td class="dn"><b>4,5×</b></td><td>17 compras</td></tr>
+          <tr><td>Consideración</td><td>$75.337</td><td>—</td><td>2.450 visitas a la web</td></tr>
+          <tr><td>Reconocimiento</td><td>$73.371</td><td>—</td><td>15.899 videos vistos</td></tr>
         </tbody>
       </table></div>
-      <p class="note" style="margin-top:10px">Otros 24 pedidos reales de Facebook ($5,95 M) llegaron con el número del anuncio en lugar del nombre de la campaña, por eso la venta real por campaña no suma el total.</p>
     </div>
     <div class="panel" style="border-top:4px solid var(--off)">
       <h3>Google Ads · búsqueda</h3>
       <div class="vs">
-        <div><small>ROAS que reporta Google</small><b class="num up">6,9×</b><span>ROAS real 2,1×</span></div>
-        <div><small>Conversiones que reporta Google</small><b class="num">17</b><span>$5,0 M · 4 pedidos reales ($1,5 M)</span></div>
+        <div><small>ROAS que reporta Google</small><b class="num up">6,9×</b><span>$5,0 M en valor de conversión</span></div>
+        <div><small>Conversiones que reporta Google</small><b class="num">17</b><span>en la semana</span></div>
         <div><small>Inversión</small><b class="num">$724.018</b><span>▼ 7,8 % frente a la 10.3 ($785.048)</span></div>
         <div><small>Clics</small><b class="num">1.174</b><span>CTR 7,0 % · $617 por clic</span></div>
       </div>
       <h3 style="margin-top:18px">Por campaña</h3>
       <div class="tscroll"><table>
-        <thead><tr><th>Campaña</th><th>Inversión</th><th>ROAS Google</th><th>Conv.</th><th class="mut">Venta real</th></tr></thead>
+        <thead><tr><th>Campaña</th><th>Inversión</th><th>ROAS Google</th><th>Conv.</th></tr></thead>
         <tbody>
-          <tr><td>Promociones (búsqueda)</td><td>$724.018</td><td class="up"><b>6,9×</b></td><td>17</td><td class="mut">$1.527.470 · 4 ped.</td></tr>
+          <tr><td>Promociones (búsqueda)</td><td>$724.018</td><td class="up"><b>6,9×</b></td><td>17</td></tr>
         </tbody>
       </table></div>
-      <p class="note" style="margin-top:10px">Además de los 4 pedidos por anuncio, otros 10 pedidos llegaron por búsqueda en Google sin anuncio.</p>
     </div>
   </div>
+
+  <details class="panel real">
+    <summary><h3>ROAS real y venta real (Shopify)</h3><span class="mut">Ver detalle</span></summary>
+    <p class="note" style="margin:12px 0">La venta real es la que Shopify registra como llegada directamente por un anuncio (último clic), gracias a la marcación de origen activa desde el 23 de octubre.</p>
+    <div class="tscroll"><table class="cmpt">
+      <thead><tr><th></th><th>Meta</th><th>Google Ads</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Pedidos reales</td><td>39</td><td>4</td><td>43</td></tr>
+        <tr><td>Venta real</td><td>$9.191.930</td><td>$1.527.470</td><td>$10.719.400</td></tr>
+        <tr><td><b>ROAS real</b></td><td><b>3,2×</b></td><td><b>2,1×</b></td><td><b>3,0×</b></td></tr>
+        <tr><td>Costo por pedido real</td><td>$72.927</td><td>$181.005</td><td>$82.980</td></tr>
+        <tr><td>Participación en la venta Shopify</td><td>41 %</td><td>7 %</td><td>48 %</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin-top:18px">Venta real por campaña de Meta</h3>
+    <div class="tscroll"><table>
+      <thead><tr><th>Campaña</th><th>Venta real</th><th>Pedidos</th></tr></thead>
+      <tbody>
+        <tr><td>AON 3</td><td>$2.071.380</td><td>10</td></tr>
+        <tr><td>AON 4</td><td>$747.770</td><td>2</td></tr>
+        <tr><td>AON 2</td><td>$421.780</td><td>3</td></tr>
+        <tr><td class="mut">Anuncios sin nombre de campaña</td><td class="mut">$5.951.000</td><td class="mut">24</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note" style="margin-top:10px">24 pedidos de Facebook llegaron con el número del anuncio en lugar del nombre de la campaña. En Google, además de los 4 pedidos por anuncio, otros 10 llegaron por búsqueda sin anuncio.</p>
+    <div class="callout info" style="margin-top:14px">
+      <b>¿Por qué el ROAS de las plataformas es más alto que el real?</b>
+      <ul style="margin:8px 0 0;padding-left:18px;display:grid;gap:6px">
+        <li><b>Cuentan compras que llegaron por otro camino.</b> Meta se atribuye una compra si la persona le dio clic a un anuncio en los 7 días anteriores, aunque al final entrara por Google, directo o WhatsApp. Shopify se la asigna al último clic.</li>
+        <li><b>Cuentan compras sin clic.</b> Meta también suma a quien solo vio el anuncio el día anterior a comprar, aunque nunca le diera clic.</li>
+        <li><b>Las dos se atribuyen la misma compra.</b> Meta reporta 70 compras y Google 17: suman 87, cuando la tienda tuvo 85 pedidos en total y 43 llegaron directamente por un anuncio.</li>
+      </ul>
+      <p style="margin:10px 0 0">El ROAS de la plataforma muestra cuánto influyeron los anuncios en la compra. El ROAS real muestra cuánta venta llegó directamente por un anuncio. Los dos son válidos; lo importante es comparar siempre semanas con el mismo indicador.</p>
+    </div>
+  </details>
 </section>
 
 <!-- CAMPAÑAS -->
