@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archivo Canal Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#f3f5fa; --surface:#ffffff; --ink:#121a33; --muted:#5b6485; --line:#e2e6f0;
+  --accent:#2f56e0; --accent-soft:#e8edff; --off:#0f8f86; --off-soft:#dff4f2;
+  --neg:#cf3846; --neg-soft:#fdecee; --pos:#11805a; --pos-soft:#e3f5ec; --warn:#a8650c; --warn-soft:#fdf2e0; --bar2:#c3cdf5;
+  --display:"Sora",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c111e; --surface:#141b2d; --ink:#e7eaf4; --muted:#9aa3c1; --line:#262f47;
+  --accent:#8aa5ff; --accent-soft:#1d2848; --off:#45d1c4; --off-soft:#123330;
+  --neg:#ff7d88; --neg-soft:#3a1a22; --pos:#43cf91; --pos-soft:#123227; --warn:#f0b056; --warn-soft:#382a14; --bar2:#34406a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c111e; --surface:#141b2d; --ink:#e7eaf4; --muted:#9aa3c1; --line:#262f47;
+  --accent:#8aa5ff; --accent-soft:#1d2848; --off:#45d1c4; --off-soft:#123330;
+  --neg:#ff7d88; --neg-soft:#3a1a22; --pos:#43cf91; --pos-soft:#123227; --warn:#f0b056; --warn-soft:#382a14; --bar2:#34406a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);margin:0;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 16px 48px}
+h1{font-family:var(--display);font-size:clamp(26px,5vw,36px);margin:4px 0 6px;letter-spacing:-.015em}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+p{color:var(--muted);margin:0 0 20px} a{color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:14px}
+th,td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left} th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+td small{display:block;color:var(--muted)} tr.cur td{background:var(--accent-soft)}
+.up{color:var(--pos)}.dn{color:var(--neg)} .btn{display:inline-block;margin-bottom:18px;font-weight:600}
+</style></head><body><main class="wrap">
+<div class="eyebrow">UB Cuarenta · Canal Digital</div>
+<h1>Archivo de informes semanales</h1>
+<p>Cada semana publicada queda guardada aquí. Toca la semana para abrir su informe completo.</p>
+<a class="btn" href="./">Ver el informe más reciente (semana 10.5) →</a>
+<div class="panel"><table>
+<thead><tr><th>Semana</th><th>Venta Mahalo</th><th>Cumpl. PV</th><th>Venta Shopify</th><th>Pedidos</th><th>Conversión</th><th>Inversión pauta</th><th>ROAS Meta</th><th>ROAS Google</th></tr></thead>
+<tbody><tr class=cur><td><a href="semanas/10-5.html"><b>10.5</b></a><small>26 oct al 1 nov 2026</small></td><td>$50.983.550</td><td class="up">102,2 %</td><td>$54.118.640</td><td>195</td><td>0,93 %</td><td>$4.358.577</td><td>9,4×</td><td>16,7×</td></tr><tr><td><a href="semanas/10-4.html"><b>10.4</b></a><small>19 al 25 oct 2026</small></td><td>$18.193.700</td><td class="up">101,6 %</td><td>$22.489.530</td><td>85</td><td>0,71 %</td><td>$3.568.154</td><td>6,8×</td><td>6,9×</td></tr><tr><td><a href="semanas/10-3.html"><b>10.3</b></a><small>12 al 18 oct 2026</small></td><td>$10.883.110</td><td class="dn">43,7 %</td><td>$13.343.600</td><td>49</td><td>0,41 %</td><td>$3.125.048</td><td>5,4×</td><td>3,8×</td></tr></tbody></table></div>
+<p style="margin-top:14px;font-size:13px">ROAS según cada plataforma. Venta Mahalo y Shopify con IVA.</p>
+</main></body></html>
