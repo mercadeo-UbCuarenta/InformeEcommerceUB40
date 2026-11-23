@@ -68,5 +68,19 @@
   "inversion": 3211161,
   "roas_meta": 6.0,
   "roas_google": 6.2
+ },
+ {
+  "semana": "11.3",
+  "archivo": "11-3.html",
+  "fechas": "16 al 22 nov 2026",
+  "mes": "Noviembre 2026",
+  "mahalo": 33519530,
+  "pv": 0.84,
+  "shopify": 33273350,
+  "pedidos": 121,
+  "conversion": 0.0062,
+  "inversion": 3643324,
+  "roas_meta": 8.4,
+  "roas_google": 13.0
  }
 ]
